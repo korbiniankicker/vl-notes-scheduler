@@ -1,0 +1,29 @@
+{
+  "vault": "/Users/korbi/vaults/uni",
+  "lectures": [
+    {
+      "name": "DS IN0015",
+      "folder": "DS IN0015",
+      "weekdays": ["tue", "thu"],
+      "start": "2026-10-12",
+      "end": "2027-02-05",
+      "skip": []
+    },
+    {
+      "name": "ERA IN0004",
+      "folder": "ERA IN0004",
+      "weekdays": ["mon", "tue", "fri"],
+      "start": "2026-10-12",
+      "end": "2027-02-05",
+      "skip": []
+    },
+    {
+      "name": "EIDIP CIT123001",
+      "folder": "EIDIP CIT123001",
+      "weekdays": ["mon", "wed"],
+      "start": "2026-10-12",
+      "end": "2027-02-05",
+      "skip": []
+    }
+  ]
+}

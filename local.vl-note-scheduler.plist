@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>local.vl-note-scheduler</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <!-- if you pulled this from github, replace with the actual path to your script -->
+        <string>/Users/korbi/scripts/vl-note-scheduler/create_notes.py</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>6</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <!-- again, replace both with your actual path -->
+    <string>/Users/korbi/Library/Logs/lecture-notes.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/korbi/Library/Logs/lecture-notes.log</string>
+</dict>
+</plist>
