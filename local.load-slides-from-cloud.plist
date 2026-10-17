@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>local.load-slides-from-cloud</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <!-- if you pulled this from github, replace with the actual path to your script -->
+        <string>/Users/korbi/scripts/vl-note-scheduler/load_slides_from_cloud.py</string>
+    </array>
+
+    <key>StartInterval</key>
+    <integer>3600</integer>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <!-- again, replace both with your actual path -->
+    <string>/Users/korbi/Library/Logs/load-slides-from-cloud.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/korbi/Library/Logs/load-slides-from-cloud.log</string>
+</dict>
+</plist>

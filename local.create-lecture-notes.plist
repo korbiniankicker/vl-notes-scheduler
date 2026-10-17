@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>local.vl-note-scheduler</string>
+    <string>local.create-lecture-notes</string>
 
     <key>ProgramArguments</key>
     <array>
@@ -25,8 +25,8 @@
 
     <key>StandardOutPath</key>
     <!-- again, replace both with your actual path -->
-    <string>/Users/korbi/Library/Logs/lecture-notes.log</string>
+    <string>/Users/korbi/Library/Logs/create-lecture-notes.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/korbi/Library/Logs/lecture-notes.log</string>
+    <string>/Users/korbi/Library/Logs/create-lecture-notes.log</string>
 </dict>
 </plist>

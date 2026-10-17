@@ -13,7 +13,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(message)s",
 )
-log = logging.getLogger("lecture-notes")
+log = logging.getLogger("create_notes")
 
 
 def is_lecture_day(lecture, today):
