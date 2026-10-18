@@ -2,6 +2,9 @@ import logging
 import sys
 import os
 import shutil
+import time
+import json
+
 
 logging.basicConfig(
     stream=sys.stderr,
@@ -10,23 +13,28 @@ logging.basicConfig(
 )
 log = logging.getLogger("load_slides_from_clouds")
 
-googleDrivePath = "/Users/korbi/gdrive/GoodNotes/TUM"
-obsidianVaultPath = "/Users/korbi/vaults/uni"
+try:
+    with open("config.json") as f:
+        config = json.load(f)
+except FileNotFoundError:
+    logging.error("config.json not found")
+    sys.exit(1)
 
-valid_folders = {"Folien", "Übungen"}
+googleDrivePath = config["google_drive_path"]
+obsidianVaultPath = config["obsidian_vault_path"]
+pollingInterval = config["polling_interval"]
+valid_folders = config["valid_folders"]
+
 
 def main():
     had_errors = False
     googleDriveDirs = os.listdir(googleDrivePath)
-    print("gdrive:", googleDriveDirs)
     obsidianDirs = os.listdir(obsidianVaultPath)
-    print("obsidian:", obsidianDirs)
 
     for course in googleDriveDirs:
         if course.startswith("."):
             continue  
         if course not in obsidianDirs:
-            log.info("Course %s is missing in Obsidian vault", course)
             had_errors = True
             continue
         else:
@@ -45,8 +53,7 @@ def main():
                                 except Exception as e:
                                     had_errors = True
                                     log.error("Error occurred while copying file %s: %s", src, str(e))
-                            else:
-                                log.info("File %s is up to date, skipping copy", file)
+
     return 1 if had_errors else 0
 
 def check_if_file_changed(sec, dst) -> bool:
@@ -57,4 +64,9 @@ def check_if_file_changed(sec, dst) -> bool:
     return src_mtime > dst_mtime
 
 if __name__ == "__main__":
-    sys.exit(main())
+    while True:
+        exit_code = main()
+        if exit_code == 1:
+            log.warning("Some files were not copied due to errors.")
+        time.sleep(pollingInterval)
+         

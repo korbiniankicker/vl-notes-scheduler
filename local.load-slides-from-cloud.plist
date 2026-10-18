@@ -5,6 +5,9 @@
     <key>Label</key>
     <string>local.load-slides-from-cloud</string>
 
+    <key>WorkingDirectory</key>
+    <string>/Users/korbi/scripts/vl-note-scheduler</string>
+
     <key>ProgramArguments</key>
     <array>
         <string>/usr/bin/python3</string>
@@ -12,8 +15,8 @@
         <string>/Users/korbi/scripts/vl-note-scheduler/load_slides_from_cloud.py</string>
     </array>
 
-    <key>StartInterval</key>
-    <integer>600</integer>
+    <key>KeepAlive</key>
+    <true/>
 
     <key>RunAtLoad</key>
     <true/>

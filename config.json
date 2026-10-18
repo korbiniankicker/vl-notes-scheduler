@@ -1,0 +1,6 @@
+{
+    "polling_interval": 10,
+    "google_drive_path": "/Users/korbi/gdrive/GoodNotes/TUM",
+    "obsidian_vault_path": "/Users/korbi/vaults/uni",
+    "valid_folders": ["Folien", "Übungen"]
+}
