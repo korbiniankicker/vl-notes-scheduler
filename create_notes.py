@@ -29,15 +29,6 @@ def create_note(vault, lecture, today):
     folder = Path(vault).expanduser() / lecture["folder"]
     folder.mkdir(parents=True, exist_ok=True)
     note_path = folder / f"{today.isoformat()} {name}.md"
-
-    try:
-        with open(note_path, "x") as note_file:  # "x" = fail if the file already exists
-            note_file.write(f"# {name}\n\n")
-            note_file.write(f"Date: {today}\n\n")
-            note_file.write("## Notes\n\n")
-    except FileExistsError:
-        log.info("already exists, skipping: %s", note_path)
-        return
     log.info("created %s", note_path)
 
 
